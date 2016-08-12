@@ -20,7 +20,7 @@ It will ask you to scan the QR in order to login. By default the QR image won't 
 
 After getting the .veri file, a.k.a saved the login state, you can start the robot program:
 
-    $ python3 bot.py &lt;*QQID*.veri>
+    $ python3 bot.py <*QQID*.veri>
 
 Don't forget to re-generate the .veri file if your .veri file is not up-to-date. In this case, your robot won't login properly until you get a new .veri file.
 
