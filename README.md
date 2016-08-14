@@ -1,4 +1,4 @@
-# PyQBot: A robot program for QQ, written in python. **<NOT API LIBRARY!>**
+# PyQBot: A robot program for QQ, written in python. **&lt;NOT API LIBRARY!>**
 
 ## A project based on [pyQQRobot](https://github.com/eyeKill/pyQQRobot).
 
@@ -7,8 +7,8 @@
 - Receive and display messages you got
 - Display replies the program sent.
 - Ping and Pong
-- Wolfram|Alpha query **<NEEDS API KEY!>**
-- [Tuling(English: Turing) Robot](http://www.tuling123.com) **<NEEDS API KEY!>**
+- Wolfram|Alpha query **&lt;NEEDS API KEY!>**
+- [Tuling(English: Turing) Robot](http://www.tuling123.com) **&lt;NEEDS API KEY!>**
 
 ## How To Use
 
