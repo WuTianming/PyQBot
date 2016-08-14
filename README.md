@@ -1,4 +1,4 @@
-# PyQBot: A robot program for QQ, written in python. **&lt;NOT API LIBRARY!>**
+# PyQBot: A robot program for QQ, written in python. **<NOT API LIBRARY!>**
 
 ## A project based on [pyQQRobot](https://github.com/eyeKill/pyQQRobot).
 
@@ -7,8 +7,8 @@
 - Receive and display messages you got
 - Display replies the program sent.
 - Ping and Pong
-- Wolfram|Alpha query **&lt;NEEDS API KEY!>**
-- [Tuling(English: Turing) Robot](http://www.tuling123.com) **&lt;NEEDS API KEY!>**
+- Wolfram|Alpha query **<NEEDS API KEY!>**
+- [Tuling(English: Turing) Robot](http://www.tuling123.com) **<NEEDS API KEY!>**
 
 ## How To Use
 
@@ -27,18 +27,18 @@ Don't forget to re-generate the .veri file if your .veri file is not up-to-date.
 When you successfully started the bot program, try typing 'wa &lt;query>' to activate Wolfram|Alpha search. Also you can talk with the Tuling Robot by typing 'wtmbot &lt;text>'. You can change 'wtmbot' to other names in the source file. For example, from this:
 
     41                log.i('Wolfram', 'response: ' + reMsg)
-    42        elif msg[0:**7**].lower() == '**wtmbot **':
-    43          msg = msg[**7**:]
-    44          reMsg = user['nick'] + '：' + t.response(msg, uin)
+    42        elif msg[0:7].lower() == 'wtmbot ':
+    43            msg = msg[7:]
+    44            reMsg = user['nick'] + '：' + t.response(msg, uin)
 
 To this:
 
     41                log.i('Wolfram', 'response: ' + reMsg)
-    42        elif msg[0:**6**].lower() == '**tlbot **':
-    43          msg = msg[**6**:]
-    44          reMsg = user['nick'] + '：' + t.response(msg, uin)
+    42        elif msg[0:6].lower() == 'tlbot ':
+    43            msg = msg[6:]
+    44            reMsg = user['nick'] + '：' + t.response(msg, uin)
 
-    Note the number changed, and the space after the name.
+Note the number changed(equal to the length of name - 1), and the space after the name.
 
 ## File structure:
 
