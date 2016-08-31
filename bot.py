@@ -170,10 +170,11 @@ class MsgHandler(QQHandler):
 
         elif msg.lower() == 'help':
             reMsg = '----wtmbot帮助手册----\n→help\n    * 显示此帮助信息\n→wtmbot [要说的话]\n    * 与很傻的人工智能进行对话\n→wa [查询内容]\n    * 查询Wolfram|Alpha\n→ydfy [翻译内容]\n    * 有道中英翻译\n→bdfy [翻译内容]\n    * 百度翻译，中文翻译为英文，外文自动检测语言翻译成中文\n→fy [来源语言] [目标语言] [翻译内容]\n    * 指定语言进行百度翻译，来源语言可为auto，表示自动识别\n→一言 [（可选）条数]\n    * 返回指定条数的一言语录；若不指定条数，默认返回一条\n→s/[替换前]/[替换后]\n    * 这是一条正则表达式替代命令，将把你的上一条信息中的“[替换前]”替换为“[替换后]”\n→^[指令]\n    * 将上一条信息作为[指令]的参数'
-            self.send_group_message(gid, reMsg)
-            log.i('Manual', 'response: ' + reMsg)
-            histMsg[group['name']] = reMsg
-            lastSay[group['name']] = '我'
+            # self.send_group_message(gid, reMsg)
+            # log.i('Manual', 'response: ' + reMsg)
+            # histMsg[group['name']] = reMsg
+            # lastSay[group['name']] = '我'
+            self.send_msg_group(group, user['nick'] + '：', reMsg, 'Manual')
 
         elif msg[0:2] == 's/':
             cmd = re.match('s/([^/]+)/([^/]*)/?', msg)
