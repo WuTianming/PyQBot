@@ -12,7 +12,7 @@ class wolfram(object):
         self.base_url = 'http://api.wolframalpha.com/v2/query?'
 
     def _get_xml(self, ip):
-        url_params = {'input':ip, 'appid':self.appid}
+        url_params = {'input':ip, 'appid':self.appid, 'format':'image,plaintext'}
         data = parse.urlencode(url_params).encode('utf-8')
         req = request.Request(self.base_url, data)
         xml = request.urlopen(req).read()
@@ -21,14 +21,17 @@ class wolfram(object):
     def _xmlparser(self, xml):
         data_dics = collections.OrderedDict()
         tree = etree.fromstring(xml)
+        pic = ''
         # retrieving every tag with label 'plaintext'
         for e in tree.findall('pod'):
             for item in [ef for ef in list(e) if ef.tag=='subpod']:
-                for it in [i for i in list(item) if i.tag=='plaintext']:
+                for it in [i for i in list(item) if i.tag=='plaintext' or i.tag=='img']:
                     if it.tag=='plaintext':
                         title = e.get('title')
                         if title == None:
                             continue
+                        elif title == 'Plot':
+                            title = '绘图'
                         elif title == 'Input':
                             title = '输入'
                         elif title == 'Result' or title == 'Value':
@@ -92,10 +95,20 @@ class wolfram(object):
                         else:
                             pass
                         if it.text == None:
-                            it.text = '[此处可能有无法加载的图片]'
-                        data_dics[title] = it.text
+                            data_dics[title] = pic
+                        else:
+                            data_dics[title] = it.text
+                    elif it.tag=='img':
+                        title = e.get('title')
+                        if it.attrib['title'] == '':
+                            # print(it.attrib['src'])
+                            pic = it.attrib['src']
         return data_dics
     def search(self, ip):
         xml = self._get_xml(ip)
         result_dics = self._xmlparser(xml)
         return result_dics
+
+if __name__ == "__main__":
+    a = wolfram('P4TW4v-XYLLG3XXEU')
+    print(a.search('y=x^2'))

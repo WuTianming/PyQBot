@@ -9,6 +9,9 @@
 - Ping and Pong
 - Wolfram|Alpha query **&lt;NEEDS API KEY!>**
 - [Tuling(English: Turing) Robot](http://www.tuling123.com) **&lt;NEEDS API KEY!>**
+- Youdao Translate **&lt;NEEDS API KEY!>**
+- Baidu Translate **&lt;NEEDS API KEY!>**
+- Builtin help manual
 
 ## How To Use
 
@@ -24,19 +27,17 @@ After getting the .veri file, a.k.a saved the login state, you can start the rob
 
 Don't forget to re-generate the .veri file if your .veri file is not up-to-date. In this case, your robot won't login properly until you get a new .veri file.
 
-When you successfully started the bot program, try typing 'wa &lt;query>' to activate Wolfram|Alpha search. Also you can talk with the Tuling Robot by typing 'wtmbot &lt;text>'. You can change 'wtmbot' to other names in the source file. For example, from this:
+When you successfully started the bot program, try typing 'wa &lt;query>' to activate Wolfram|Alpha search, and 'help' for a help manual. Also you can talk with the Tuling Robot by typing 'wtmbot &lt;text>'. You can change 'wtmbot' to other names in the source file. For example, from this:
 
-    41                log.i('Wolfram', 'response: ' + reMsg)
-    42        elif msg[0:7].lower() == 'wtmbot ':
-    43            msg = msg[7:]
-    44            reMsg = user['nick'] + '：' + t.response(msg, uin)
+            elif msg[0:7].lower() == 'wtmbot ':
+                msg = msg[7:]
+                reMsg = user['nick'] + '：' + t.response(msg, uin)
 
 To this:
 
-    41                log.i('Wolfram', 'response: ' + reMsg)
-    42        elif msg[0:6].lower() == 'tlbot ':
-    43            msg = msg[6:]
-    44            reMsg = user['nick'] + '：' + t.response(msg, uin)
+            elif msg[0:6].lower() == 'tlbot ':
+                msg = msg[6:]
+                reMsg = user['nick'] + '：' + t.response(msg, uin)
 
 Note the number changed(equal to the length of name - 1), and the space after the name.
 
@@ -46,6 +47,9 @@ Note the number changed(equal to the length of name - 1), and the space after th
 - genVeriFile.py: generates .veri verication file for the robot program to login without scanning QRs every time
 - tuling.py: Tuling Robot API Class
 - wolfram.py: Wolfram|Alpha API Class
+- ydcv.py: Youdao Translate
+- bdtrans.py: Baidu Translate
+- mogic.py: MogicBot!
 - original pyQQRobot Project
     - mlogger.py
     - qqfriends.py
